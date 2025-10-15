@@ -2,6 +2,7 @@ package com.uksoup.effected_scrolls;
 
 import com.mojang.logging.LogUtils;
 import com.uksoup.effected_scrolls.items.ModItems;
+import com.uksoup.effected_scrolls.loot.ModLootModifiers;
 import com.uksoup.effected_scrolls.sounds.ModSounds;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraftforge.common.MinecraftForge;
@@ -23,6 +24,7 @@ public class EffectedScrollsMain {
 
         ModItems.register(modEventBus);
         ModSounds.register(modEventBus);
+        ModLootModifiers.register(modEventBus);
 
         modEventBus.addListener(this::addCreative);
         modEventBus.addListener(this::commonSetup);
