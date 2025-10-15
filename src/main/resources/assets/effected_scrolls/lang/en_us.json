@@ -1,4 +1,10 @@
 {
   "item.effected_scrolls.enchanted_scroll": "Enchanted Scroll",
-  "item.effected_scrolls.experience_tomb": "Experience Tomb"
+  "item.effected_scrolls.experience_tomb": "Experience Tomb",
+  "effected_scrolls.subtitle.scroll_use": "Enchanted Scroll casting",
+  "effected_scrolls.subtitle.scroll_complete": "Enchanted Scroll used",
+  "effected_scrolls.subtitle.scroll_stop": "Enchanted Scroll interrupted",
+  "effected_scrolls.subtitle.tomb_use": "Experience Tomb casting",
+  "effected_scrolls.subtitle.tomb_complete": "Experience Tomb absorbed",
+  "effected_scrolls.subtitle.tomb_stop": "Experience Tomb interrupted"
 }

@@ -97,16 +97,8 @@ public class ExperienceTombItem extends Item {
         if (tag != null && tag.contains("Experience")) {
             int experience = tag.getInt("Experience");
 
-            // Convert experience points to approximate levels for display
-            int levels = calculateLevelsFromExperience(experience);
-
-            if (levels > 0) {
-                return Component.literal("Experience Tomb (" + levels + " Level" + (levels > 1 ? "s" : "") + ")")
+            return Component.literal("Experience Tomb")
                         .withStyle(ChatFormatting.GREEN);
-            } else {
-                return Component.literal("Experience Tomb (" + experience + " Points)")
-                        .withStyle(ChatFormatting.GREEN);
-            }
         }
 
         return super.getName(stack);
@@ -114,6 +106,12 @@ public class ExperienceTombItem extends Item {
 
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> tooltip, TooltipFlag flag) {
+
+        tooltip.add(Component.literal("Hold right-click to absorb")
+                .withStyle(ChatFormatting.BLUE)
+                .withStyle(ChatFormatting.ITALIC)
+        );
+
         CompoundTag tag = stack.getTag();
         if (tag != null && tag.contains("Experience")) {
             int experience = tag.getInt("Experience");
@@ -121,14 +119,16 @@ public class ExperienceTombItem extends Item {
 
             if (levels > 0) {
                 tooltip.add(Component.literal("Experience: " + experience + " points (~" + levels + " levels)")
-                        .withStyle(ChatFormatting.AQUA));
+                        .withStyle(ChatFormatting.AQUA)
+                        .withStyle(ChatFormatting.ITALIC)
+                );
             } else {
-                tooltip.add(Component.literal("Experience: " + experience + " points")
-                        .withStyle(ChatFormatting.AQUA));
+                tooltip.add(Component.literal("Experience: " + experience + " Points")
+                        .withStyle(ChatFormatting.AQUA)
+                        .withStyle(ChatFormatting.ITALIC)
+                );
             }
         }
-
-        tooltip.add(Component.literal("Hold right-click to absorb").withStyle(ChatFormatting.GRAY));
     }
 
     /**
@@ -168,31 +168,5 @@ public class ExperienceTombItem extends Item {
     @Override
     public boolean isFoil(ItemStack stack) {
         return true; // Enchanted glint effect
-    }
-
-    /**
-     * Returns the color for the tomb overlay.
-     * Can be customized to use different colors based on experience amount.
-     */
-    public static int getColor(ItemStack stack) {
-        CompoundTag tag = stack.getTag();
-        if (tag != null && tag.contains("Experience")) {
-            int experience = tag.getInt("Experience");
-
-            // Color based on experience amount (green gradient)
-            // Low XP = darker green, High XP = brighter green
-            if (experience < 100) {
-                return 0x00AA00; // Dark green
-            } else if (experience < 500) {
-                return 0x00FF00; // Medium green
-            } else if (experience < 2000) {
-                return 0x55FF55; // Bright green
-            } else {
-                return 0xAAFFAA; // Very bright green/cyan
-            }
-        }
-
-        // Default green color
-        return 0x00FF00;
     }
 }
