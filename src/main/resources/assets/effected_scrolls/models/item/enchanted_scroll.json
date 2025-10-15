@@ -1,0 +1,7 @@
+{
+    "parent":"item/generated",
+    "textures":{
+        "layer0":"effected_scrolls:item/enchanted_scroll",
+        "layer1": "effected_scrolls:item/enchanted_scroll_overlay"
+    }
+}

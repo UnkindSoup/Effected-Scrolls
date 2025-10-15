@@ -1,0 +1,56 @@
+{
+  "scroll_use": {
+    "subtitle": "effected_scrolls.subtitle.scroll_use",
+    "sounds": [
+      {
+        "type": "file",
+        "name": "effected_scrolls:scroll_use"
+      }
+    ]
+  },
+  "scroll_complete": {
+    "subtitle": "effected_scrolls.subtitle.scroll_complete",
+    "sounds": [
+      {
+        "type": "file",
+        "name": "effected_scrolls:scroll_cast"
+      }
+    ]
+  },
+  "scroll_stop": {
+    "subtitle": "effected_scrolls.subtitle.scroll_stop",
+    "sounds": [
+      {
+        "type": "file",
+        "name": "effected_scrolls:scroll_discard"
+      }
+    ]
+  },
+  "tomb_use": {
+    "subtitle": "effected_scrolls.subtitle.tomb_use",
+    "sounds": [
+      {
+        "type": "file",
+        "name": "effected_scrolls:tomb_use"
+      }
+    ]
+  },
+  "tomb_complete": {
+    "subtitle": "effected_scrolls.subtitle.tomb_complete",
+    "sounds": [
+      {
+        "type": "file",
+        "name": "effected_scrolls:tomb_cast"
+      }
+    ]
+  },
+  "tomb_stop": {
+    "subtitle": "effected_scrolls.subtitle.tomb_stop",
+    "sounds": [
+      {
+        "type": "file",
+        "name": "effected_scrolls:tomb_discard"
+      }
+    ]
+  }
+}
