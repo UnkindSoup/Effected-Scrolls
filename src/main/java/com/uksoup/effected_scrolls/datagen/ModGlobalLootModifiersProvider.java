@@ -20,9 +20,10 @@ public class ModGlobalLootModifiersProvider extends GlobalLootModifierProvider {
     @Override
     protected void start() {
 
-        add("tomb_from_chest", new AddItemModifier(new LootItemCondition[] {
-                new LootTableIdCondition.Builder(new ResourceLocation("chests/jungle_temple")).build() }, ModItems.EXPERIENCE_TOMB.get()));
-
+        add("tomb_from_jungle_temple", new AddItemModifier(new LootItemCondition[] {
+                new LootTableIdCondition.Builder(new ResourceLocation("chests/jungle_temple")).build(),
+                LootItemRandomChanceCondition.randomChance(0.5f).build() },
+                ModItems.EXPERIENCE_TOMB.get()));
 
     }
 }

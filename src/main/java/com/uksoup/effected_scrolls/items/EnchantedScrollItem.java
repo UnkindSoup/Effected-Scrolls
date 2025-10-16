@@ -33,7 +33,7 @@ public class EnchantedScrollItem extends Item {
         ItemStack stack = player.getItemInHand(hand);
 
         level.playSound(player, player.getX(), player.getY(), player.getZ(),
-                ModSounds.SCROLL_USE.get(), SoundSource.PLAYERS, 0.3F, 1.0F);
+                ModSounds.SCROLL_USE.get(), SoundSource.PLAYERS, 0.4F, 1.0F);
 
         player.startUsingItem(hand);
         return InteractionResultHolder.consume(stack);
@@ -44,7 +44,7 @@ public class EnchantedScrollItem extends Item {
         if (entity instanceof Player player) {
             // Play sound when scroll usage is completed (client side)
             level.playSound(player, player.getX(), player.getY(), player.getZ(),
-                    ModSounds.SCROLL_COMPLETE.get(), SoundSource.PLAYERS, 0.3F, 1.0F);
+                    ModSounds.SCROLL_COMPLETE.get(), SoundSource.PLAYERS, 0.4F, 1.0F);
 
             if (!level.isClientSide) {
                 CompoundTag tag = stack.getTag();
@@ -87,7 +87,7 @@ public class EnchantedScrollItem extends Item {
             }
 
             level.playSound(player, player.getX(), player.getY(), player.getZ(),
-                    ModSounds.SCROLL_STOP.get(), SoundSource.PLAYERS, 0.3F, 1.0F);
+                    ModSounds.SCROLL_STOP.get(), SoundSource.PLAYERS, 0.4F, 1.0F);
         }
     }
 

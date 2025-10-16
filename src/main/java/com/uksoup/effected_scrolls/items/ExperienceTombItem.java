@@ -30,7 +30,7 @@ public class ExperienceTombItem extends Item {
         ItemStack stack = player.getItemInHand(hand);
 
         level.playSound(player, player.getX(), player.getY(), player.getZ(),
-                ModSounds.TOMB_USE.get(), SoundSource.PLAYERS, 0.5F, 1.0F);
+                ModSounds.TOMB_USE.get(), SoundSource.PLAYERS, 0.4F, 1.0F);
 
         player.startUsingItem(hand);
         return InteractionResultHolder.consume(stack);
@@ -41,7 +41,7 @@ public class ExperienceTombItem extends Item {
         if (entity instanceof Player player) {
             // Play sound when tomb usage is completed (client side)
             level.playSound(player, player.getX(), player.getY(), player.getZ(),
-                    ModSounds.TOMB_COMPLETE.get(), SoundSource.PLAYERS, 1.0F, 1.0F);
+                    ModSounds.TOMB_COMPLETE.get(), SoundSource.PLAYERS, 0.4F, 1.0F);
 
             if (!level.isClientSide) {
                 CompoundTag tag = stack.getTag();
@@ -77,7 +77,7 @@ public class ExperienceTombItem extends Item {
 
             // Play sound when tomb usage is stopped early
             level.playSound(player, player.getX(), player.getY(), player.getZ(),
-                    ModSounds.TOMB_STOP.get(), SoundSource.PLAYERS, 0.5F, 1.0F);
+                    ModSounds.TOMB_STOP.get(), SoundSource.PLAYERS, 0.4F, 1.0F);
         }
     }
 
