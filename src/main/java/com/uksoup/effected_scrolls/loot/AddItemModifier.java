@@ -15,9 +15,10 @@ import net.minecraftforge.registries.ForgeRegistries;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.function.Supplier;
-
+import java.util.Random;
 
 public class AddItemModifier extends LootModifier {
+    private static final Random RANDOM = new Random();
     public static final Supplier<Codec<AddItemModifier>> CODEC = Suppliers.memoize(()
             -> RecordCodecBuilder.create(inst -> codecStart(inst).and(ForgeRegistries.ITEMS.getCodec()
             .fieldOf("item").forGetter(m -> m.item)).apply(inst, AddItemModifier::new)));
@@ -43,11 +44,10 @@ public class AddItemModifier extends LootModifier {
             CompoundTag tag = stack.getOrCreateTag();
             RandomSource random = context.getRandom();
 
-            // Generate random experience between 100-1000 points (roughly 3-20 levels)
-            // Adjust these values to your preference
-            int minExperience = 100;
+            // Generate random experience between 10-1000 points (roughly 1-20 levels)
+            int minExperience = 10;
             int maxExperience = 1000;
-            int experience = minExperience + random.nextInt(maxExperience - minExperience + 1);
+            int experience = getWeightedRandomExperience(minExperience, maxExperience);
 
             tag.putInt("Experience", experience);
             stack.setTag(tag);
@@ -56,6 +56,41 @@ public class AddItemModifier extends LootModifier {
         generatedLoot.add(stack);
 
         return generatedLoot;
+    }
+
+    private static int getWeightedRandomExperience(int min, int max) {
+        double roll = RANDOM.nextDouble();
+
+        if (roll < 0.20) {
+            int rangeMin = Math.max(min, 10);
+            int rangeMax = Math.min(100, max);
+            if (rangeMax <= rangeMin) return rangeMin;
+            return rangeMin + RANDOM.nextInt(rangeMax - rangeMin);
+
+        } else if (roll < 0.70) {
+            int rangeMin = Math.max(min, 100);
+            int rangeMax = Math.min(300, max);
+            if (rangeMax <= rangeMin) return rangeMin;
+            return rangeMin + RANDOM.nextInt(rangeMax - rangeMin);
+
+        } else if (roll < 0.90) {
+            int rangeMin = Math.max(min, 300);
+            int rangeMax = Math.min(500, max);
+            if (rangeMax <= rangeMin) return rangeMin;
+            return rangeMin + RANDOM.nextInt(rangeMax - rangeMin);
+
+        } else if (roll < 0.95) {
+            int rangeMin = Math.max(min, 500);
+            int rangeMax = Math.min(1500, max);
+            if (rangeMax <= rangeMin) return rangeMin;
+            return rangeMin + RANDOM.nextInt(rangeMax - rangeMin);
+
+        } else {
+            int rangeMin = Math.max(min, 1500);
+            int rangeMax = Math.min(2000, max);
+            if (rangeMax <= rangeMin) return rangeMin;
+            return rangeMin + RANDOM.nextInt(rangeMax - rangeMin);
+        }
     }
 
     @Override

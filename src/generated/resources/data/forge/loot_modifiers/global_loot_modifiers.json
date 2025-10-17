@@ -1,6 +1,26 @@
 {
   "entries": [
-    "effected_scrolls:tomb_from_jungle_temple"
+    "effected_scrolls:tomb_from_ancient_city_ice_box",
+    "effected_scrolls:tomb_from_stronghold_crossing",
+    "effected_scrolls:tomb_from_shipwreck_treasure",
+    "effected_scrolls:tomb_from_ruined_portal",
+    "effected_scrolls:tomb_from_woodland_mansion",
+    "effected_scrolls:tomb_from_stronghold_library",
+    "effected_scrolls:tomb_from_igloo_chest",
+    "effected_scrolls:tomb_from_ancient_city",
+    "effected_scrolls:tomb_from_bastion_treasure",
+    "effected_scrolls:tomb_from_pillager_outpost",
+    "effected_scrolls:tomb_from_end_city_treasure",
+    "effected_scrolls:tomb_from_nether_bridge",
+    "effected_scrolls:tomb_from_simple_dungeon",
+    "effected_scrolls:tomb_from_bastion_bridge",
+    "effected_scrolls:tomb_from_stronghold_corridor",
+    "effected_scrolls:tomb_from_buried_treasure",
+    "effected_scrolls:tomb_from_jungle_temple",
+    "effected_scrolls:tomb_from_abandoned_mineshaft",
+    "effected_scrolls:tomb_from_desert_pyramid",
+    "effected_scrolls:tomb_from_bastion_other",
+    "effected_scrolls:tomb_from_bastion_hoglin_stable"
   ],
   "replace": false
 }
